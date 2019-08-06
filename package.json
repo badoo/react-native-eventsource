@@ -1,8 +1,9 @@
 {
-  "name": "@huston007/react-native-eventsource",
+  "name": "@magiclab/react-native-eventsource",
   "version": "0.2.2",
   "description": "A react-native component for EventSource: Server-Sent Events for iOS and Android",
   "main": "index.js",
+  "private": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

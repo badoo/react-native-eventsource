@@ -21,6 +21,8 @@
 
 package org.kaazing.net.sse.impl;
 
+import android.webkit.CookieManager;
+
 import org.kaazing.gateway.client.impl.http.HttpRequest;
 import org.kaazing.gateway.client.impl.http.HttpRequest.Method;
 import org.kaazing.gateway.client.impl.http.HttpRequestAuthenticationHandler;
@@ -119,6 +121,8 @@ public class SseEventStream {
         try {
             HttpURI uri = new HttpURI(this.sseLocation);
             sseSource = new HttpRequest(Method.GET, uri, true);
+            String cookies = CookieManager.getInstance().getCookie(this.sseLocation);
+            sseSource.setHeader("Cookie", cookies);
             sseHandler.processOpen(sseSource);
 
             if (!reconnected.get()) {
